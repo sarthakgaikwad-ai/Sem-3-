@@ -79,3 +79,15 @@ if __name__ == "__main__":
 
         else:
             print("Invalid choice. Please try again.")
+
+# Library Menu:
+# 1. Display all books
+# 2. Check out a book
+# 3. Return a book
+# 4. Exit
+# Enter your choice: 1
+
+# Available Books:
+# '1984' by George Orwell is Available.
+# 'To Kill a Mockingbird' by Harper Lee is Available.
+# 'The Great Gatsby' by F. Scott Fitzgerald is Available.

@@ -79,7 +79,7 @@ if __name__ == "__main__":
 
         else:
             print("Invalid choice. Please try again.")
-
+#output 
 # Library Menu:
 # 1. Display all books
 # 2. Check out a book

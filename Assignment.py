@@ -1,93 +1,93 @@
 class Library:
-    def __init__(self, book_name, author, available=True):
-        """
-        Initialize the library book with details.
-        :param book_name: str
-        :param author: str
-        :param available: bool (default is True)
-        """
+
+    def __init__(self, book_name, author):
         self.book_name = book_name
         self.author = author
-        self.available = available
+        self.available = True
 
-    def check_out(self):
-        """
-        Check out a book if available.
-        """
+    def display(self):
+        if self.available:
+            print(self.book_name, self.author, "Available")
+        else:
+            print(self.book_name, self.author, "Not Available")
+
+    def issue_book(self):
         if self.available:
             self.available = False
-            print(f"'{self.book_name}' by {self.author} has been checked out.")
+            print("Book Issued Successfully")
         else:
-            print(f"'{self.book_name}' by {self.author} is currently unavailable.")
+            print("Book is Not Available")
 
     def return_book(self):
-        """
-        Return a book to make it available.
-        """
-        if not self.available:
+        if self.available:
+            print("Book is Already in Library")
+        else:
             self.available = True
-            print(f"'{self.book_name}' by {self.author} has been returned and is now available.")
-        else:
-            print(f"'{self.book_name}' by {self.author} was not checked out.")
+            print("Book Returned Successfully")
 
-    def display_status(self):
-        """
-        Display the availability status of the book.
-        """
-        status = "Available" if self.available else "Checked out"
-        print(f"'{self.book_name}' by {self.author} is {status}.")
 
-# Example usage:
-if __name__ == "__main__":
-    # Create a list of book objects
-    library_books = [
-        Library("1984", "George Orwell"),
-        Library("To Kill a Mockingbird", "Harper Lee"),
-        Library("The Great Gatsby", "F. Scott Fitzgerald"),
-    ]
+# Creating Objects
+book1 = Library("1984", "George Orwell")
+book2 = Library("The Alchemist", "Paulo Coelho")
+book3 = Library("The Starks", "John Smith")
 
-    while True:
-        print("\nLibrary Menu:\n1. Display all books\n2. Check out a book\n3. Return a book\n4. Exit")
-        choice = input("Enter your choice: ")
+books = [book1, book2, book3]
 
-        if choice == "1":
-            print("\nAvailable Books:")
-            for book in library_books:
-                book.display_status()
+while True:
 
-        elif choice == "2":
-            book_name = input("Enter the name of the book to check out: ")
-            for book in library_books:
-                if book.book_name.lower() == book_name.lower():
-                    book.check_out()
-                    break
-            else:
-                print("Book not found in the library.")
+    print("\n------ Library Menu ------")
+    print("1. Display Books")
+    print("2. Issue Book")
+    print("3. Return Book")
+    print("4. Exit")
 
-        elif choice == "3":
-            book_name = input("Enter the name of the book to return: ")
-            for book in library_books:
-                if book.book_name.lower() == book_name.lower():
-                    book.return_book()
-                    break
-            else:
-                print("Book not found in the library.")
+    choice = input("Enter Choice: ")
 
-        elif choice == "4":
-            print("Exiting the library system. Have a great day!")
-            break
+    if choice == "1":
+        for book in books:
+            book.display()
 
-        else:
-            print("Invalid choice. Please try again.")
+    elif choice == "2":
+        name = input("Enter Book Name: ")
+
+        found = False
+        for book in books:
+            if book.book_name.lower() == name.lower():
+                book.issue_book()
+                found = True
+                break
+
+        if not found:
+            print("Book Not Found")
+
+    elif choice == "3":
+        name = input("Enter Book Name: ")
+
+        found = False
+        for book in books:
+            if book.book_name.lower() == name.lower():
+                book.return_book()
+                found = True
+                break
+
+        if not found:
+            print("Book Not Found")
+
+    elif choice == "4":
+        print("Thank You!")
+        break
+
+    else:
+        print("Invalid Choice")
+
+
 #output 
-# Library Menu:
-# 1. Display all books
-# 2. Check out a book
-# 3. Return a book
+# ------ Library Menu ------
+# 1. Display Books
+# 2. Issue Book
+# 3. Return Book
 # 4. Exit
-# Enter your choice: 1
-
-# Available Books:
-# '1984' by George Orwell is Available.
-# 'To Kill a Mockingbird' by Harper Lee is Available.
-# 'The Great Gatsby' by F. Scott Fitzgerald is Available.
+# Enter Choice: 1
+# 1984 George Orwell Available
+# The Alchemist Paulo Coelho Available
+# The Starks John Smith Available

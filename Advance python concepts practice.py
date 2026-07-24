@@ -1,20 +1,20 @@
-# def decorator(func):
-#     def wrapper():
-#         print("Before function call")
-#         func()
-#         print("After function call")
-#     return wrapper
+def decorator(func):
+    def wrapper():
+        print("Before function call")
+        func()
+        print("After function call")
+    return wrapper
 
-# @decorator
-# def greet():
-#     print("Hello!")
+@decorator
+def greet():
+    print("Hello!")
 
-# greet()
+greet()
 
 
-# my_list=[21,22,23,24]  #itertors 
-# my_iter=iter(my_list)
-# print(next(my_iter))
+my_list=[21,22,23,24]  #itertors 
+my_iter=iter(my_list)
+print(next(my_iter))
 
 def my_decorator(function):
     def wrapper(*args,**kwargs):

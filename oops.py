@@ -21,3 +21,9 @@ e2 = Employee("Piyush", 60000)
 
 print(e1.name, e1.salary)
 print(e2.name, e2.salary)
+
+#output
+#Maruti 120000
+# Sarthak 50000
+# Piyush 60000
+
